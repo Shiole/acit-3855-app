@@ -1,7 +1,7 @@
 version: 1
 datastore:
   user: "kitty"
-  password: ""
+  password: "01273256"
   hostname: "acit3855-kafka.canadacentral.cloudapp.azure.com"
   port: 3306
   db: "events"
