@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, Double, Integer, String, DateTime
+from sqlalchemy import Boolean, Column, Float, Integer, String, DateTime
 from base import Base
 import datetime
 
@@ -15,8 +15,8 @@ class Orders(Base):
     order_address = Column(String(250), nullable=False)
     burger_name = Column(String(250), nullable=False)
     order_quantity = Column(Integer, nullable=False)
-    order_total = Column(Double, nullable=False)
-    order_tip = Column(Double, nullable=False)
+    order_total = Column(Float, nullable=False)
+    order_tip = Column(Float, nullable=False)
     order_timestamp = Column(String(100), nullable=False)
     date_created = Column(DateTime, nullable=False)
     trace_id = Column(String(250), nullable=False)
