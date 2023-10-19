@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Double, Integer, String, DateTime
+from sqlalchemy import Column, Float, Integer, String, DateTime
 from base import Base
 import datetime
 
@@ -13,8 +13,8 @@ class Deliveries(Base):
     driver_id = Column(Integer, nullable=False)
     assignment_timestamp = Column(String(100), nullable=False)
     fulfilment_timestamp = Column(String(100), nullable=False)
-    delivery_distance = Column(Double, nullable=False)
-    delivery_tip = Column(Double, nullable=False)
+    delivery_distance = Column(Float, nullable=False)
+    delivery_tip = Column(Float, nullable=False)
     date_created = Column(DateTime, nullable=False)
     trace_id = Column(String(250), nullable=False)
 
