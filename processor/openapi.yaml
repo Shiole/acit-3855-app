@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info:
+  description: This API provides event stats
+  version: "1.0.0"
+  title: Burger Stats API
+  contact:
+    email: klow23@my.bcit.ca
+  license:
+    name: Apache 2.0
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+paths:
+  /stats:
+    get:
+      summary: Gets the event stats
+      operationId: app.get_stats
+      description: Gets Burger statistics
+      responses:
+        "200":
+          description: Successfully returned a list of Order events
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/BurgerStats"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+components:
+  schemas:
+    BurgerStats:
+      required:
+        - num_orders
+        - max_order_quantity
+        - max_order_total
+        - num_deliveries
+        - max_delivery_distance
+      type: object
+      properties:
+        num_orders:
+          type: integer
+          example: 1000
+        max_order_quantity:
+          type: integer
+          example: 100
+        max_order_total:
+          type: integer
+          example: 904.70
+        num_deliveries:
+          type: integer
+          example: 58
+        max_delivery_distance:
+          type: integer
+          example: 5.0

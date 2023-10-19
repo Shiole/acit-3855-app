@@ -1,0 +1,9 @@
+version: 1
+orderevent:
+  url: http://localhost:8100/order
+deliveryevent:
+  url: http://localhost:8100/delivery
+events:
+  hostname: acit3855-kafka.canadacentral.cloudapp.azure.com
+  port: 9092
+  topic: events

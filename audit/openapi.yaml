@@ -1,0 +1,153 @@
+openapi: 3.0.0
+info:
+  description: This API provides audit info
+  version: "1.0.0"
+  title: Audit API
+  contact:
+    email: klow23@bcit.ca
+
+paths:
+  /order:
+    get:
+      summary: gets an order event from history
+      operationId: app.get_order_event
+      description: Gets an order event from the event store
+      parameters:
+        - name: index
+          in: query
+          description: Gets the order at the index in the event store
+          schema:
+            type: integer
+            example: 100
+      responses:
+        "200":
+          description: Successfully returned an order event
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/OrderEvent"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /delivery:
+    get:
+      summary: gets a delivery event from history
+      operationId: app.get_delivery_event
+      description: Gets a delivery event from the event store
+      parameters:
+        - name: index
+          in: query
+          description: Gets the delivery at the index in the event store
+          schema:
+            type: integer
+            example: 100
+      responses:
+        "200":
+          description: Successfully returned a delivery event
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/DeliveryEvent"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "404":
+          description: Not Found
+
+components:
+  schemas:
+    OrderEvent:
+      type: object
+      required:
+        - customer_name
+        - customer_phone
+        - is_delivery
+        - order_address
+        - burger_name
+        - order_quantity
+        - order_total
+        - order_tip
+        - order_timestamp
+      properties:
+        customer_name:
+          type: string
+          example: "John Doe"
+        customer_phone:
+          type: string
+          example: "778-668-2818"
+        is_delivery:
+          type: boolean
+          example: "true"
+        order_address:
+          type: string
+          example: "5855 Sherbrooke Street"
+        burger_name:
+          type: string
+          example: "Juicy Original"
+        order_quantity:
+          type: integer
+          example: 3
+        order_total:
+          type: number
+          example: 13.50
+        order_tip:
+          type: number
+          example: 5.00
+        order_timestamp:
+          example: "2023-09-07T012:15:33.001Z"
+
+    DeliveryEvent:
+      type: object
+      required:
+        - order_id
+        - driver_id
+        - assignment_timestamp
+        - fulfilment_timestamp
+        - delivery_distance
+        - delivery_tip
+      properties:
+        order_id:
+          type: integer
+          example: 2
+        driver_id:
+          type: integer
+          example: 20
+        assignment_timestamp:
+          type: string
+          format: date-time
+          example: "2023-09-07T012:16:33.001Z"
+        fulfilment_timestamp:
+          type: string
+          format: date-time
+          example: "2023-09-07T012:34:33.001Z"
+        delivery_distance:
+          type: number
+          example: 0.2
+        delivery_tip:
+          type: number
+          example: 2.50

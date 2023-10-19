@@ -1,0 +1,124 @@
+openapi: 3.0.0
+info:
+  description: This API recieves burger order events from customers and assigns deliveries to drivers
+  version: "1.0.0"
+  title: Burger ordering API
+  contact:
+    email: klow23@my.bcit.ca
+  license:
+    name: Apache 2.0
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+tags:
+  - name: orders
+    description: Operations available to customer orders
+  - name: deliveries
+    description: Operations available to delivery scheduling
+paths:
+  /orders:
+    post:
+      tags:
+        - orders
+      summary: details of customer order
+      operationId: app.create_order
+      description: Adds a new order to the system
+      responses:
+        "201":
+          description: order created
+        "400":
+          description: bad input parameter
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrderItem"
+        description: Order item to add
+
+  /deliveries:
+    post:
+      tags:
+        - deliveries
+      summary: details of delivery orders
+      operationId: app.schedule_delivery
+      description: Adds an item to the system
+      responses:
+        "201":
+          description: delivery assigned
+        "400":
+          description: "invalid input, object invalid"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeliveryItem"
+        description: Delivery item to add
+components:
+  schemas:
+    OrderItem:
+      type: object
+      required:
+        - customer_name
+        - customer_phone
+        - is_delivery
+        - order_address
+        - burger_name
+        - order_quantity
+        - order_total
+        - order_tip
+        - order_timestamp
+      properties:
+        customer_name:
+          type: string
+          example: "John Doe"
+        customer_phone:
+          type: string
+          example: "778-668-2818"
+        is_delivery:
+          type: boolean
+          example: "true"
+        order_address:
+          type: string
+          example: "5855 Sherbrooke Street"
+        burger_name:
+          type: string
+          example: "Juicy Original"
+        order_quantity:
+          type: integer
+          example: 3
+        order_total:
+          type: number
+          example: 13.50
+        order_tip:
+          type: number
+          example: 5.00
+        order_timestamp:
+          example: "2023-09-07T012:15:33.001Z"
+    DeliveryItem:
+      type: object
+      required:
+        - order_id
+        - driver_id
+        - assignment_timestamp
+        - fulfilment_timestamp
+        - delivery_distance
+        - delivery_tip
+      properties:
+        order_id:
+          type: integer
+          example: 2
+        driver_id:
+          type: integer
+          example: 20
+        assignment_timestamp:
+          type: string
+          format: date-time
+          example: "2023-09-07T012:16:33.001Z"
+        fulfilment_timestamp:
+          type: string
+          format: date-time
+          example: "2023-09-07T012:34:33.001Z"
+        delivery_distance:
+          type: number
+          example: 0.2
+        delivery_tip:
+          type: number
+          example: 2.50
