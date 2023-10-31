@@ -69,4 +69,4 @@ services:
       - "kafka"
   # Names our volume
   volumes:
-    my-db:
+    my-db: "kafka"
