@@ -1,10 +1,11 @@
 from connexion import FlaskApp
-import swagger_ui_bundle
 from pykafka import KafkaClient
 import logging
 import logging.config
 import yaml
 import json
+from flask_cors import CORS, cross_origin
+
 
 with open("log_conf.yaml", "r") as f:
     log_config = yaml.safe_load(f.read())
@@ -83,8 +84,9 @@ def get_delivery_event(index):
 
 
 app = FlaskApp(__name__, specification_dir='')
-app.add_api("openapi.yaml", strict_validation=True,
-            validate_responses=True)
+app.add_api("openapi.yaml", strict_validation=True, validate_responses=True)
+CORS(app.app)
+app.app.config['CORS_HEADERS'] = 'Content-Type'
 
 if __name__ == "__main__":
     app.run(port=8110)
