@@ -51,7 +51,7 @@ def populate_stats():
             "max_order_total": 0,
             "num_deliveries": 0,
             "max_delivery_distance": 0,
-            "last_updated": "2023-10-12 09:30:05.309015"
+            "last_updated": "2023-11-02 10:40:05.309015"
         }
 
     last_updated = stats["last_updated"]
