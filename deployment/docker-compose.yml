@@ -50,7 +50,7 @@ services:
     depends_on:
       - "kafka"
   storage:
-    image: storge
+    image: storage
     ports:
       - "8090:8090"
     depends_on:
