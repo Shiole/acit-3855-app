@@ -28,8 +28,6 @@ def get_stats():
         with open(data_file, "r") as f:
             data = json.load(f)
 
-        data.pop("last_updated")
-
         logger.debug(f"Current recorded stats: {data}")
         logger.info("Stats retrieval complete")
 
