@@ -28,13 +28,13 @@ def create_order(body):
     logger.info(
         f"Received event Order request with a trace id of {trace_id}")
 
-    producer = topic.get_sync_producer()
+    # producer = topic.get_sync_producer()
     msg = {"type": "order",
            "datetime": datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
            "payload": body
            }
     msg_str = json.dumps(msg)
-    # producer.produce(msg_str.encode('utf-8'))
+    producer.produce(msg_str.encode('utf-8'))
 
     logger.info(
         f"Received event Order response (Id: {trace_id}) with status {201}")
