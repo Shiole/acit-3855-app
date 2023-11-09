@@ -66,20 +66,21 @@ app = FlaskApp(__name__, specification_dir='')
 app.add_api("openapi.yaml", strict_validation=True,
             validate_responses=True)
 
+cur_retry = 0
+while cur_retry < max_retry:
+    try:
+        logger.info(
+            f"Attempting to connect to Kafka. Current retry: {cur_retry}")
+        client = KafkaClient(hosts=f'{kafka_server}:{kafka_port}')
+        topic = client.topics[str.encode(kafka_topic)]
+        logger.info(f"Connection successful")
+        break
+    except Exception as e:
+        logger.error(f"Connection attempt {cur_retry} failed")
+        time.sleep(sleep)
+        cur_retry += 1
+        if cur_retry == max_retry:
+            logger.error(f"Failed to connect to Kafka")
+
 if __name__ == "__main__":
-    cur_retry = 0
-    while cur_retry < max_retry:
-        try:
-            logger.info(
-                f"Attempting to connect to Kafka. Current retry: {cur_retry}")
-            client = KafkaClient(hosts=f'{kafka_server}:{kafka_port}')
-            topic = client.topics[str.encode(kafka_topic)]
-            logger.info(f"Connection successful")
-            break
-        except Exception as e:
-            logger.error(f"Connection attempt {cur_retry} failed")
-            time.sleep(sleep)
-            cur_retry += 1
-            if cur_retry == max_retry:
-                logger.error(f"Failed to connect to Kafka")
     app.run(port=8080)
