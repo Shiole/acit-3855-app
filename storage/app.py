@@ -12,7 +12,6 @@ import json
 import time
 from pykafka import KafkaClient
 from pykafka.common import OffsetType
-from pykafka.exceptions import SocketDisconnectedError, LeaderNotAvailable
 from threading import Thread
 
 with open('./app_conf.yaml', 'r') as f:
@@ -101,7 +100,7 @@ def process_messages():
             topic = client.topics[str.encode(kafka_topic)]
             logger.info(f"Connection successful")
             break
-        except:
+        except Exception as e:
             logger.error(f"Connection attempt {cur_retry} failed")
             time.sleep(sleep)
             cur_retry += 1
