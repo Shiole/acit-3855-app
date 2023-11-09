@@ -95,6 +95,7 @@ def process_messages():
 
     while cur_retry < max_retry:
         logger.info(f"Trying to connect to Kafka. Current retry: {cur_retry}")
+        cur_retry += 1
 
         try:
             client = KafkaClient(hosts=hostname)
@@ -103,7 +104,6 @@ def process_messages():
         except Exception as e:
             logger.error(f"Connection failed")
             time.sleep(sleep)
-            cur_retry += 1
 
     # Create a consumer on a consumer group, that only reads new messages
     # (uncommitted messages) when the service re-starts (i.e., it doesn't
