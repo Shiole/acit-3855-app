@@ -55,7 +55,7 @@ def populate_stats():
         }
 
     last_updated = stats["last_updated"]
-    cur_datetime = datetime.now()
+    cur_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
 
     # Get Order logs
     orders_response = requests.get(
