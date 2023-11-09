@@ -7704,3 +7704,21 @@
 2023-11-09 10:47:20,913 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
 2023-11-09 10:47:20,917 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
 2023-11-09 10:47:20,919 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:55:06,029 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:55:06,033 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:55:06,034 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:55:37,112 - basicLogger - ERROR - Connection failed
+2023-11-09 10:55:42,118 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 1
+2023-11-09 10:55:50,080 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:55:50,084 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:55:50,085 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:56:36,617 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:56:36,621 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:56:36,621 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:57:33,678 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:57:33,683 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:57:33,684 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:59:06,316 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:59:06,321 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:59:06,321 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:59:06,680 - basicLogger - INFO - Connection successful
