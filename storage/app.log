@@ -7581,3 +7581,123 @@
 2023-10-19 10:28:19,260 - basicLogger - INFO - Delivery with trace id b8a7f544-495d-4388-bf0e-7af9e4fc7bf0 added to database
 2023-10-19 10:28:35,135 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
 2023-10-19 10:28:35,139 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:09:07,165 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:09:07,170 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:09:07,171 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:07,597 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:07,915 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:08,225 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:08,555 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:08,891 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:09,199 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:09,489 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:09,801 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:10,153 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:10,453 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:10,740 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:11,065 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:11,397 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:11,677 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:11,998 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:12,285 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:12,564 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:12,905 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:13,230 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:13,573 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:13,898 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:14,241 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:14,521 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:14,831 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:15,109 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:15,448 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:15,772 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:16,150 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:16,439 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:16,737 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:17,072 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:17,432 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:17,782 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:18,152 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:18,486 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:18,784 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:19,083 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:19,379 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:19,753 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0
+2023-11-09 10:09:52,748 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:09:52,753 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:09:52,754 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 1
+2023-11-09 10:09:53,073 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 2
+2023-11-09 10:09:53,373 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 3
+2023-11-09 10:09:53,698 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 4
+2023-11-09 10:09:54,003 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 5
+2023-11-09 10:09:54,378 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 6
+2023-11-09 10:09:54,662 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 7
+2023-11-09 10:09:54,987 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 8
+2023-11-09 10:09:55,290 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 9
+2023-11-09 10:09:55,572 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 10
+2023-11-09 10:09:56,141 - basicLogger - INFO - Message: {'type': 'order', 'datetime': '2023-11-09T17:57:43', 'payload': {'customer_name': 'kvzyk vuqplfpc', 'customer_phone': '132155372', 'is_delivery': False, 'order_address': '1622 bppdt rytkjpev', 'burger_name': 'Beyond Juicy', 'order_quantity': 18, 'order_total': 107, 'order_tip': 73, 'order_timestamp': '2023-11-09-09:57:43:286 AM -08:00', 'trace_id': '624d3bfc-96db-434a-9767-0c7afdba24c7'}}
+2023-11-09 10:09:56,142 - basicLogger - INFO - Received event Order request with a trace id of 624d3bfc-96db-434a-9767-0c7afdba24c7
+2023-11-09 10:09:57,039 - basicLogger - DEBUG - Stored order event with trace id 624d3bfc-96db-434a-9767-0c7afdba24c7
+2023-11-09 10:09:57,197 - basicLogger - INFO - Message: {'type': 'order', 'datetime': '2023-11-09T17:57:43', 'payload': {'customer_name': 'fnfyu dpcptjcv', 'customer_phone': '605269273', 'is_delivery': True, 'order_address': '7392 rpopp dwlyoupn', 'burger_name': 'Crackling Chicken', 'order_quantity': 9, 'order_total': 14, 'order_tip': 45, 'order_timestamp': '2023-11-09-09:57:43:484 AM -08:00', 'trace_id': '4a7c83dd-619d-43ce-aee8-218be0d294a6'}}
+2023-11-09 10:09:57,198 - basicLogger - INFO - Received event Order request with a trace id of 4a7c83dd-619d-43ce-aee8-218be0d294a6
+2023-11-09 10:09:57,403 - basicLogger - DEBUG - Stored order event with trace id 4a7c83dd-619d-43ce-aee8-218be0d294a6
+2023-11-09 10:09:57,474 - basicLogger - INFO - Message: {'type': 'order', 'datetime': '2023-11-09T17:57:43', 'payload': {'customer_name': 'egxyp gzpmartb', 'customer_phone': '733593659', 'is_delivery': True, 'order_address': '3510 zhnai cblyfeym', 'burger_name': "Hot 'n Juicy", 'order_quantity': 19, 'order_total': 195, 'order_tip': 65, 'order_timestamp': '2023-11-09-09:57:43:683 AM -08:00', 'trace_id': 'dc98f3c6-1a15-44f2-b35d-3d30ed412a7c'}}
+2023-11-09 10:09:57,475 - basicLogger - INFO - Received event Order request with a trace id of dc98f3c6-1a15-44f2-b35d-3d30ed412a7c
+2023-11-09 10:09:57,686 - basicLogger - DEBUG - Stored order event with trace id dc98f3c6-1a15-44f2-b35d-3d30ed412a7c
+2023-11-09 10:09:57,752 - basicLogger - INFO - Message: {'type': 'order', 'datetime': '2023-11-09T17:57:43', 'payload': {'customer_name': 'pabwz efkteriw', 'customer_phone': '972371768', 'is_delivery': False, 'order_address': '4483 fyjaz bybwwzxe', 'burger_name': "Hot 'n Juicy", 'order_quantity': 1, 'order_total': 105, 'order_tip': 86, 'order_timestamp': '2023-11-09-09:57:43:885 AM -08:00', 'trace_id': 'c7a7e4df-7cfd-4ab1-94f2-d46b456c6969'}}
+2023-11-09 10:09:57,754 - basicLogger - INFO - Received event Order request with a trace id of c7a7e4df-7cfd-4ab1-94f2-d46b456c6969
+2023-11-09 10:09:57,958 - basicLogger - DEBUG - Stored order event with trace id c7a7e4df-7cfd-4ab1-94f2-d46b456c6969
+2023-11-09 10:09:58,017 - basicLogger - INFO - Message: {'type': 'order', 'datetime': '2023-11-09T17:57:44', 'payload': {'customer_name': 'vtkuk unucdohi', 'customer_phone': '301160518', 'is_delivery': False, 'order_address': '607 kdoah vkiqmohq', 'burger_name': 'Beyond Juicy', 'order_quantity': 19, 'order_total': 112, 'order_tip': 20, 'order_timestamp': '2023-11-09-09:57:44:084 AM -08:00', 'trace_id': 'a2e062ab-f224-4d1f-9ac2-79784662ddc1'}}
+2023-11-09 10:09:58,018 - basicLogger - INFO - Received event Order request with a trace id of a2e062ab-f224-4d1f-9ac2-79784662ddc1
+2023-11-09 10:09:58,200 - basicLogger - DEBUG - Stored order event with trace id a2e062ab-f224-4d1f-9ac2-79784662ddc1
+2023-11-09 10:09:58,259 - basicLogger - INFO - Message: {'type': 'delivery', 'datetime': '2023-11-09T17:57:48', 'payload': {'assignment_timestamp': '2023-11-09-09:57:48:541 AM -08:00', 'delivery_distance': 5, 'delivery_id': 45, 'delivery_tip': 6, 'driver_id': 14, 'fulfilment_timestamp': '2023-11-09 09:55:48', 'order_id': 957, 'trace_id': '1dbd6c7f-e28c-45df-b366-0f03b3d95c7b'}}
+2023-11-09 10:09:58,260 - basicLogger - INFO - Received event Delivery request with a trace id of 1dbd6c7f-e28c-45df-b366-0f03b3d95c7b
+2023-11-09 10:09:58,430 - basicLogger - INFO - Delivery with trace id 1dbd6c7f-e28c-45df-b366-0f03b3d95c7b added to database
+2023-11-09 10:09:58,488 - basicLogger - INFO - Message: {'type': 'delivery', 'datetime': '2023-11-09T17:57:48', 'payload': {'assignment_timestamp': '2023-11-09-09:57:48:632 AM -08:00', 'delivery_distance': 4, 'delivery_id': 945, 'delivery_tip': 31, 'driver_id': 16, 'fulfilment_timestamp': '2023-11-09 09:55:48', 'order_id': 49, 'trace_id': '70ed8e3d-ad72-4cfc-981c-00ab3c265d68'}}
+2023-11-09 10:09:58,489 - basicLogger - INFO - Received event Delivery request with a trace id of 70ed8e3d-ad72-4cfc-981c-00ab3c265d68
+2023-11-09 10:09:58,657 - basicLogger - INFO - Delivery with trace id 70ed8e3d-ad72-4cfc-981c-00ab3c265d68 added to database
+2023-11-09 10:09:58,714 - basicLogger - INFO - Message: {'type': 'delivery', 'datetime': '2023-11-09T17:57:48', 'payload': {'assignment_timestamp': '2023-11-09-09:57:48:833 AM -08:00', 'delivery_distance': 4, 'delivery_id': 30, 'delivery_tip': 38, 'driver_id': 18, 'fulfilment_timestamp': '2023-11-09 09:55:48', 'order_id': 526, 'trace_id': '6eed283f-4e0e-4ad8-88f3-6e66c54b1d8e'}}
+2023-11-09 10:09:58,715 - basicLogger - INFO - Received event Delivery request with a trace id of 6eed283f-4e0e-4ad8-88f3-6e66c54b1d8e
+2023-11-09 10:09:58,951 - basicLogger - INFO - Delivery with trace id 6eed283f-4e0e-4ad8-88f3-6e66c54b1d8e added to database
+2023-11-09 10:09:59,032 - basicLogger - INFO - Message: {'type': 'delivery', 'datetime': '2023-11-09T17:57:49', 'payload': {'assignment_timestamp': '2023-11-09-09:57:49:032 AM -08:00', 'delivery_distance': 2, 'delivery_id': 547, 'delivery_tip': 32, 'driver_id': 8, 'fulfilment_timestamp': '2023-11-09 09:55:49', 'order_id': 292, 'trace_id': 'f770ad68-21f5-487b-884c-8ddd33d0a1c8'}}
+2023-11-09 10:09:59,033 - basicLogger - INFO - Received event Delivery request with a trace id of f770ad68-21f5-487b-884c-8ddd33d0a1c8
+2023-11-09 10:09:59,209 - basicLogger - INFO - Delivery with trace id f770ad68-21f5-487b-884c-8ddd33d0a1c8 added to database
+2023-11-09 10:09:59,267 - basicLogger - INFO - Message: {'type': 'delivery', 'datetime': '2023-11-09T17:57:49', 'payload': {'assignment_timestamp': '2023-11-09-09:57:49:235 AM -08:00', 'delivery_distance': 4, 'delivery_id': 948, 'delivery_tip': 22, 'driver_id': 20, 'fulfilment_timestamp': '2023-11-09 09:55:49', 'order_id': 744, 'trace_id': '6836c6b8-566a-4d51-adc8-728ec46ec21c'}}
+2023-11-09 10:09:59,268 - basicLogger - INFO - Received event Delivery request with a trace id of 6836c6b8-566a-4d51-adc8-728ec46ec21c
+2023-11-09 10:09:59,438 - basicLogger - INFO - Delivery with trace id 6836c6b8-566a-4d51-adc8-728ec46ec21c added to database
+2023-11-09 10:09:59,495 - basicLogger - INFO - Message: {'type': 'order', 'datetime': '2023-11-09T17:57:53', 'payload': {'customer_name': 'aplgj tiukauyr', 'customer_phone': '330178444', 'is_delivery': True, 'order_address': '693 jejcr nijhndlw', 'burger_name': 'Juicy Original', 'order_quantity': 3, 'order_total': 91, 'order_tip': 84, 'order_timestamp': '2023-11-09-09:57:53:707 AM -08:00', 'trace_id': '7d0f066e-a396-45d3-bd29-271caad6e99f'}}
+2023-11-09 10:09:59,496 - basicLogger - INFO - Received event Order request with a trace id of 7d0f066e-a396-45d3-bd29-271caad6e99f
+2023-11-09 10:09:59,667 - basicLogger - DEBUG - Stored order event with trace id 7d0f066e-a396-45d3-bd29-271caad6e99f
+2023-11-09 10:09:59,723 - basicLogger - INFO - Message: {'type': 'order', 'datetime': '2023-11-09T17:57:53', 'payload': {'customer_name': 'vtvhn wzncsmuk', 'customer_phone': '323228796', 'is_delivery': False, 'order_address': '3605 aludz chvcxxgf', 'burger_name': 'Beyond Juicy', 'order_quantity': 20, 'order_total': 112, 'order_tip': 6, 'order_timestamp': '2023-11-09-09:57:53:793 AM -08:00', 'trace_id': '3b1467db-4995-4363-8b5e-52f5a5fd9345'}}
+2023-11-09 10:09:59,725 - basicLogger - INFO - Received event Order request with a trace id of 3b1467db-4995-4363-8b5e-52f5a5fd9345
+2023-11-09 10:09:59,895 - basicLogger - DEBUG - Stored order event with trace id 3b1467db-4995-4363-8b5e-52f5a5fd9345
+2023-11-09 10:09:59,955 - basicLogger - INFO - Message: {'type': 'order', 'datetime': '2023-11-09T17:57:54', 'payload': {'customer_name': 'kmafo phjyytgq', 'customer_phone': '071697266', 'is_delivery': True, 'order_address': '3184 diugf iznnwace', 'burger_name': 'Crackling Chicken', 'order_quantity': 13, 'order_total': 198, 'order_tip': 75, 'order_timestamp': '2023-11-09-09:57:53:989 AM -08:00', 'trace_id': 'c53612b0-c649-4ded-9c91-9d493abccf22'}}
+2023-11-09 10:09:59,956 - basicLogger - INFO - Received event Order request with a trace id of c53612b0-c649-4ded-9c91-9d493abccf22
+2023-11-09 10:10:00,191 - basicLogger - DEBUG - Stored order event with trace id c53612b0-c649-4ded-9c91-9d493abccf22
+2023-11-09 10:10:00,249 - basicLogger - INFO - Message: {'type': 'order', 'datetime': '2023-11-09T17:57:54', 'payload': {'customer_name': 'wzbhl dlopcbok', 'customer_phone': '924815388', 'is_delivery': True, 'order_address': '1044 ozjmb fjbxksyv', 'burger_name': "Hot 'n Juicy", 'order_quantity': 10, 'order_total': 55, 'order_tip': 62, 'order_timestamp': '2023-11-09-09:57:54:195 AM -08:00', 'trace_id': 'e7ea72cb-9a6c-4f19-bfe2-d20a25070db1'}}
+2023-11-09 10:10:00,250 - basicLogger - INFO - Received event Order request with a trace id of e7ea72cb-9a6c-4f19-bfe2-d20a25070db1
+2023-11-09 10:10:00,418 - basicLogger - DEBUG - Stored order event with trace id e7ea72cb-9a6c-4f19-bfe2-d20a25070db1
+2023-11-09 10:10:00,475 - basicLogger - INFO - Message: {'type': 'order', 'datetime': '2023-11-09T17:57:54', 'payload': {'customer_name': 'lgmmm loipiaql', 'customer_phone': '806081978', 'is_delivery': False, 'order_address': '5404 vmsmy ipxdpdjm', 'burger_name': "Hot 'n Juicy", 'order_quantity': 3, 'order_total': 170, 'order_tip': 82, 'order_timestamp': '2023-11-09-09:57:54:382 AM -08:00', 'trace_id': 'ad6daa87-3030-4ca2-8a19-6b73463849cb'}}
+2023-11-09 10:10:00,477 - basicLogger - INFO - Received event Order request with a trace id of ad6daa87-3030-4ca2-8a19-6b73463849cb
+2023-11-09 10:10:00,644 - basicLogger - DEBUG - Stored order event with trace id ad6daa87-3030-4ca2-8a19-6b73463849cb
+2023-11-09 10:10:00,702 - basicLogger - INFO - Message: {'type': 'delivery', 'datetime': '2023-11-09T17:57:58', 'payload': {'assignment_timestamp': '2023-11-09-09:57:58:865 AM -08:00', 'delivery_distance': 3, 'delivery_id': 848, 'delivery_tip': 3, 'driver_id': 12, 'fulfilment_timestamp': '2023-11-09 09:55:58', 'order_id': 653, 'trace_id': '4dc984ea-6847-42fb-b063-8bd5aa994b79'}}
+2023-11-09 10:10:00,703 - basicLogger - INFO - Received event Delivery request with a trace id of 4dc984ea-6847-42fb-b063-8bd5aa994b79
+2023-11-09 10:10:00,874 - basicLogger - INFO - Delivery with trace id 4dc984ea-6847-42fb-b063-8bd5aa994b79 added to database
+2023-11-09 10:10:00,933 - basicLogger - INFO - Message: {'type': 'delivery', 'datetime': '2023-11-09T17:57:59', 'payload': {'assignment_timestamp': '2023-11-09-09:57:58:939 AM -08:00', 'delivery_distance': 1, 'delivery_id': 782, 'delivery_tip': 4, 'driver_id': 2, 'fulfilment_timestamp': '2023-11-09 09:55:58', 'order_id': 544, 'trace_id': '82e2a208-713b-4731-88c3-1b524ae53358'}}
+2023-11-09 10:10:00,934 - basicLogger - INFO - Received event Delivery request with a trace id of 82e2a208-713b-4731-88c3-1b524ae53358
+2023-11-09 10:10:01,108 - basicLogger - INFO - Delivery with trace id 82e2a208-713b-4731-88c3-1b524ae53358 added to database
+2023-11-09 10:10:01,166 - basicLogger - INFO - Message: {'type': 'delivery', 'datetime': '2023-11-09T17:57:59', 'payload': {'assignment_timestamp': '2023-11-09-09:57:59:133 AM -08:00', 'delivery_distance': 5, 'delivery_id': 914, 'delivery_tip': 35, 'driver_id': 1, 'fulfilment_timestamp': '2023-11-09 09:55:59', 'order_id': 709, 'trace_id': '1adbf404-aede-47ae-8c00-2d98231129df'}}
+2023-11-09 10:10:01,167 - basicLogger - INFO - Received event Delivery request with a trace id of 1adbf404-aede-47ae-8c00-2d98231129df
+2023-11-09 10:10:01,343 - basicLogger - INFO - Delivery with trace id 1adbf404-aede-47ae-8c00-2d98231129df added to database
+2023-11-09 10:10:01,406 - basicLogger - INFO - Message: {'type': 'delivery', 'datetime': '2023-11-09T17:57:59', 'payload': {'assignment_timestamp': '2023-11-09-09:57:59:361 AM -08:00', 'delivery_distance': 3, 'delivery_id': 419, 'delivery_tip': 39, 'driver_id': 9, 'fulfilment_timestamp': '2023-11-09 09:55:59', 'order_id': 316, 'trace_id': 'eb075c9e-2712-45a1-902b-d5bec9cebbc5'}}
+2023-11-09 10:10:01,408 - basicLogger - INFO - Received event Delivery request with a trace id of eb075c9e-2712-45a1-902b-d5bec9cebbc5
+2023-11-09 10:10:01,578 - basicLogger - INFO - Delivery with trace id eb075c9e-2712-45a1-902b-d5bec9cebbc5 added to database
+2023-11-09 10:10:01,634 - basicLogger - INFO - Message: {'type': 'delivery', 'datetime': '2023-11-09T17:57:59', 'payload': {'assignment_timestamp': '2023-11-09-09:57:59:545 AM -08:00', 'delivery_distance': 3, 'delivery_id': 948, 'delivery_tip': 36, 'driver_id': 4, 'fulfilment_timestamp': '2023-11-09 09:55:59', 'order_id': 91, 'trace_id': 'a0d72635-5b5e-4217-87f2-038d6ca2161f'}}
+2023-11-09 10:10:01,635 - basicLogger - INFO - Received event Delivery request with a trace id of a0d72635-5b5e-4217-87f2-038d6ca2161f
+2023-11-09 10:10:01,806 - basicLogger - INFO - Delivery with trace id a0d72635-5b5e-4217-87f2-038d6ca2161f added to database
+2023-11-09 10:11:02,368 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:11:02,373 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:11:02,373 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 1
+2023-11-09 10:23:06,845 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:23:06,851 - basicLogger - INFO - Connecting to DB. Hostname: acit3855-kafka.canadacentral.cloudapp.azure.com, Port: 3306
+2023-11-09 10:23:06,852 - basicLogger - INFO - Trying to connect to Kafka. Current retry: 0

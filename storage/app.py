@@ -94,7 +94,6 @@ def process_messages():
     cur_retry = 0
 
     while cur_retry < max_retry:
-
         logger.info(f"Trying to connect to Kafka. Current retry: {cur_retry}")
 
         try:
@@ -103,8 +102,6 @@ def process_messages():
         except (SocketDisconnectedError) as e:
             logger.error(f"Connection failed")
             time.sleep(sleep)
-            consumer.stop()
-            consumer.start()
             cur_retry += 1
 
     # Create a consumer on a consumer group, that only reads new messages
