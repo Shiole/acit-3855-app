@@ -99,7 +99,8 @@ def process_messages():
         try:
             client = KafkaClient(hosts=hostname)
             topic = client.topics[str.encode(kafka_topic)]
-        except (SocketDisconnectedError) as e:
+            break
+        except Exception as e:
             logger.error(f"Connection failed")
             time.sleep(sleep)
             cur_retry += 1
