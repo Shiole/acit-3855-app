@@ -59,7 +59,7 @@ def populate_stats():
 
     # Get Order logs
     orders_response = requests.get(
-        f"{ENDPOINT}/getorders?timestamp={last_updated}")
+        f"{ENDPOINT}/getorders?start_timestamp={last_updated}&end_timestamp={cur_datetime}")
     orders_results = orders_response.json()
 
     # Process logs
@@ -81,7 +81,7 @@ def populate_stats():
 
     # Get Delivery logs
     deliveries_response = requests.get(
-        f"{ENDPOINT}/getdeliveries?timestamp={last_updated}")
+        f"{ENDPOINT}/getdeliveries?start_timestamp={last_updated}&end_timestamp={cur_datetime}")
     deliveries_results = deliveries_response.json()
 
     # Process logs

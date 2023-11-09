@@ -1,5 +1,5 @@
 from connexion import FlaskApp
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, and_
 from sqlalchemy.orm import sessionmaker
 from base import Base
 from orders import Orders
@@ -30,15 +30,19 @@ with open('./log_conf.yaml', 'r') as f:
     logger = logging.getLogger('basicLogger')
 
 
-def get_orders(timestamp):
+def get_orders(start_timestamp, end_timestamp):
     """ Gets new orders after the timestamp"""
     session = DB_SESSION()
 
-    timestamp_datetime = datetime.datetime.strptime(
-        timestamp, "%Y-%m-%d %H:%M:%S.%f")
+    start_timestamp_datetime = datetime.datetime.strptime(
+        start_timestamp, "%Y-%m-%d %H:%M:%S.%f")
+
+    end_timestamp_datetime = datetime.datetime.strptime(
+        end_timestamp, "%Y-%m-%d %H:%M:%S.%f")
 
     orders = session.query(Orders).filter(
-        Orders.date_created >= timestamp_datetime)
+        and_(Orders.date_created >= start_timestamp_datetime,
+             Orders.date_created < end_timestamp_datetime))
 
     results_list = []
 
@@ -48,20 +52,24 @@ def get_orders(timestamp):
     session.close()
 
     logger.info(
-        f"Query for Orders after {timestamp} returns {len(results_list)} results")
+        f"Query for Orders after {start_timestamp} returns {len(results_list)} results")
 
     return results_list, 200
 
 
-def get_deliveries(timestamp):
+def get_deliveries(start_timestamp, end_timestamp):
     """ Gets new deliveries after the timestamp"""
     session = DB_SESSION()
 
-    timestamp_datetime = datetime.datetime.strptime(
-        timestamp, "%Y-%m-%d %H:%M:%S.%f")
+    start_timestamp_datetime = datetime.datetime.strptime(
+        start_timestamp, "%Y-%m-%d %H:%M:%S.%f")
+
+    end_timestamp_datetime = datetime.datetime.strptime(
+        end_timestamp, "%Y-%m-%d %H:%M:%S.%f")
 
     deliveries = session.query(Deliveries).filter(
-        Deliveries.date_created >= timestamp_datetime)
+        and_(Deliveries.date_created >= start_timestamp_datetime,
+             Deliveries.date_created < end_timestamp_datetime))
 
     results_list = []
 
@@ -71,7 +79,7 @@ def get_deliveries(timestamp):
     session.close()
 
     logger.info(
-        f"Query for Deliveries after {timestamp} returns {len(results_list)} results")
+        f"Query for Deliveries after {start_timestamp} returns {len(results_list)} results")
 
     return results_list, 200
 

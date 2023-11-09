@@ -22,13 +22,20 @@ paths:
       operationId: app.get_orders
       description: Gets orders added after a timestamp
       parameters:
-        - name: timestamp
+        - name: start_timestamp
           in: query
-          description: Limits the number of items on a page
+          description: Limits number of items on a page greater/equal to the time
           schema:
             type: string
             format: date-time
             example: 2016-08-29T09:12:33.001Z
+        - name: end_timestamp
+          in: query
+          description: Limits number of items on a page less than the time
+          schema:
+            type: string
+            format: date-time
+            example: 2016-08-29T10:20:33.001Z
       responses:
         "200":
           description: Successfully returned a list of order events
@@ -55,13 +62,20 @@ paths:
       operationId: app.get_deliveries
       description: Gets deliveries added after a timestamp
       parameters:
-        - name: timestamp
+        - name: start_timestamp
           in: query
-          description: Limits the number of items on a page
+          description: Limits number of items on a page greater/equal to the time
           schema:
             type: string
             format: date-time
             example: 2016-08-29T09:12:33.001Z
+        - name: end_timestamp
+          in: query
+          description: Limits number of items on a page less than the time
+          schema:
+            type: string
+            format: date-time
+            example: 2016-08-29T10:12:33.001Z
       responses:
         "200":
           description: Successfully returned a list of delivery events
