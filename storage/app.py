@@ -9,8 +9,10 @@ import logging
 import logging.config
 import datetime
 import json
+import time
 from pykafka import KafkaClient
 from pykafka.common import OffsetType
+from pykafka.exceptions import SocketDisconnectedError, LeaderNotAvailable
 from threading import Thread
 
 with open('./app_conf.yaml', 'r') as f:
@@ -18,6 +20,8 @@ with open('./app_conf.yaml', 'r') as f:
     kafka_server = app_config["events"]["hostname"]
     kafka_port = app_config["events"]["port"]
     kafka_topic = app_config["events"]["topic"]
+    max_retry = app_config["max_retry"]
+    sleep = app_config["sleep"]
 
 DB_ENGINE = create_engine(
     f"mysql+pymysql://{app_config['datastore']['user']}:{app_config['datastore']['password']}@{app_config['datastore']['hostname']}:{app_config['datastore']['port']}/{app_config['datastore']['db']}")
@@ -87,9 +91,21 @@ def get_deliveries(start_timestamp, end_timestamp):
 def process_messages():
     """ Process event messages """
     hostname = f"{kafka_server}:{kafka_port}"
+    cur_retry = 0
 
-    client = KafkaClient(hosts=hostname)
-    topic = client.topics[str.encode(kafka_topic)]
+    while cur_retry < max_retry:
+
+        logger.info(f"Trying to connect to Kafka. Current retry: {cur_retry}")
+
+        try:
+            client = KafkaClient(hosts=hostname)
+            topic = client.topics[str.encode(kafka_topic)]
+        except (SocketDisconnectedError) as e:
+            logger.error(f"Connection failed")
+            time.sleep(sleep)
+            consumer.stop()
+            consumer.start()
+            cur_retry += 1
 
     # Create a consumer on a consumer group, that only reads new messages
     # (uncommitted messages) when the service re-starts (i.e., it doesn't
