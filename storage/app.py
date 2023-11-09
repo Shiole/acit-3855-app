@@ -100,7 +100,8 @@ def process_messages():
         try:
             client = KafkaClient(hosts=hostname)
             topic = client.topics[str.encode(kafka_topic)]
-            break
+            if topic:
+                break
         except Exception as e:
             logger.error(f"Connection failed")
             time.sleep(sleep)
