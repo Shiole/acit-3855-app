@@ -28,7 +28,7 @@ def create_order(body):
     logger.info(
         f"Received event Order request with a trace id of {trace_id}")
 
-    producer = topic.get_sync_producer()
+    # producer = topic.get_sync_producer()
     msg = {"type": "order",
            "datetime": datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
            "payload": body
@@ -48,7 +48,7 @@ def schedule_delivery(body):
     logger.info(
         f"Received event Delivery request with a trace id of {trace_id}")
 
-    producer = topic.get_sync_producer()
+    # producer = topic.get_sync_producer()
     msg = {"type": "delivery",
            "datetime": datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
            "payload": body
@@ -74,6 +74,7 @@ while cur_retry < max_retry:
         client = KafkaClient(hosts=f'{kafka_server}:{kafka_port}')
         topic = client.topics[str.encode(kafka_topic)]
         logger.info(f"Connection successful")
+        producer = topic.get_sync_producer()
         break
     except Exception as e:
         logger.error(f"Connection attempt {cur_retry} failed")
