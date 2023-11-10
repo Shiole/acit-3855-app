@@ -1,6 +1,6 @@
 from connexion import FlaskApp
 from sqlalchemy import create_engine, and_
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
 from base import Base
 from orders import Orders
 from deliveries import Deliveries
@@ -22,8 +22,8 @@ with open('./app_conf.yaml', 'r') as f:
     max_retry = app_config["max_retry"]
     sleep = app_config["sleep"]
 
-DB_ENGINE = create_engine(
-    f"mysql+pymysql://{app_config['datastore']['user']}:{app_config['datastore']['password']}@{app_config['datastore']['hostname']}:{app_config['datastore']['port']}/{app_config['datastore']['db']}", pool_pre_ping=True)
+DB_URL = f"mysql+pymysql://{app_config['datastore']['user']}:{app_config['datastore']['password']}@{app_config['datastore']['hostname']}:{app_config['datastore']['port']}/{app_config['datastore']['db']}"
+DB_ENGINE = create_engine(DB_URL)
 Base.metadata.bind = DB_ENGINE
 DB_SESSION = sessionmaker(bind=DB_ENGINE)
 
@@ -35,7 +35,7 @@ with open('./log_conf.yaml', 'r') as f:
 
 def get_orders(start_timestamp, end_timestamp):
     """ Gets new orders after the timestamp"""
-    session = DB_SESSION()
+    session = scoped_session(DB_SESSION)
 
     start_timestamp_datetime = datetime.datetime.strptime(
         start_timestamp, "%Y-%m-%d %H:%M:%S.%f")
@@ -62,7 +62,7 @@ def get_orders(start_timestamp, end_timestamp):
 
 def get_deliveries(start_timestamp, end_timestamp):
     """ Gets new deliveries after the timestamp"""
-    session = DB_SESSION()
+    session = scoped_session(DB_SESSION)
 
     start_timestamp_datetime = datetime.datetime.strptime(
         start_timestamp, "%Y-%m-%d %H:%M:%S.%f")
@@ -126,7 +126,7 @@ def process_messages():
             # Store order payload to the DB
             logger.info(
                 f"Received event Order request with a trace id of {payload['trace_id']}")
-            session = DB_SESSION()
+            session = scoped_session(DB_SESSION)
 
             oe = Orders(payload['customer_name'],
                         payload['customer_phone'],
@@ -150,7 +150,7 @@ def process_messages():
             logger.info(
                 f"Received event Delivery request with a trace id of {payload['trace_id']}")
 
-            session = DB_SESSION()
+            session = scoped_session(DB_SESSION)
 
             de = Deliveries(payload['order_id'],
                             payload['driver_id'],
