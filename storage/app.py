@@ -35,8 +35,7 @@ with open('./log_conf.yaml', 'r') as f:
 
 def get_orders(start_timestamp, end_timestamp):
     """ Gets new orders after the timestamp"""
-    session = scoped_session(DB_SESSION)
-
+    session = DB_SESSION
     start_timestamp_datetime = datetime.datetime.strptime(
         start_timestamp, "%Y-%m-%d %H:%M:%S.%f")
 
@@ -62,7 +61,7 @@ def get_orders(start_timestamp, end_timestamp):
 
 def get_deliveries(start_timestamp, end_timestamp):
     """ Gets new deliveries after the timestamp"""
-    session = scoped_session(DB_SESSION)
+    session = DB_SESSION
 
     start_timestamp_datetime = datetime.datetime.strptime(
         start_timestamp, "%Y-%m-%d %H:%M:%S.%f")
@@ -126,7 +125,7 @@ def process_messages():
             # Store order payload to the DB
             logger.info(
                 f"Received event Order request with a trace id of {payload['trace_id']}")
-            session = scoped_session(DB_SESSION)
+            session = DB_SESSION()
 
             oe = Orders(payload['customer_name'],
                         payload['customer_phone'],
@@ -150,7 +149,7 @@ def process_messages():
             logger.info(
                 f"Received event Delivery request with a trace id of {payload['trace_id']}")
 
-            session = scoped_session(DB_SESSION)
+            session = DB_SESSION()
 
             de = Deliveries(payload['order_id'],
                             payload['driver_id'],
