@@ -4,19 +4,33 @@ import logging
 import logging.config
 import yaml
 import json
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
+import os
 
+if "TARGET_ENV" in os.environ and os.environ["TARGET_ENV"] == "test":
+    print("In Test Environment")
+    app_conf_file = "/config/app_conf.yaml"
+    log_conf_file = "/config/log_conf.yaml"
+else:
+    print("In Dev Environment")
+    app_conf_file = "app_conf.yaml"
+    log_conf_file = "log_conf.yaml"
 
-with open("log_conf.yaml", "r") as f:
-    log_config = yaml.safe_load(f.read())
-    logging.config.dictConfig(log_config)
-    logger = logging.getLogger("basicLogger")
 
 with open('app_conf.yaml', 'r') as f:
     app_config = yaml.safe_load(f.read())
     kafka_server = app_config["events"]["hostname"]
     kafka_port = app_config["events"]["port"]
     kafka_topic = app_config["events"]["topic"]
+
+with open("log_conf.yaml", "r") as f:
+    log_config = yaml.safe_load(f.read())
+    logging.config.dictConfig(log_config)
+
+logger = logging.getLogger("basicLogger")
+
+logger.info(f"App Conf File: {app_conf_file}")
+logger.info(f"Log Conf File: {log_conf_file}")
 
 
 def get_order_event(index):

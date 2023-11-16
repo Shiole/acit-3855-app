@@ -7,8 +7,18 @@ import datetime
 import json
 import time
 from pykafka import KafkaClient
+import os
 
-with open('./app_conf.yaml', 'r') as f:
+if "TARGET_ENV" in os.environ and os.environ["TARGET_ENV"] == "test":
+    print("In Test Environment")
+    app_conf_file = "/config/app_conf.yaml"
+    log_conf_file = "/config/log_conf.yaml"
+else:
+    print("In Dev Environment")
+    app_conf_file = "app_conf.yaml"
+    log_conf_file = "log_conf.yaml"
+
+with open(app_conf_file, 'r') as f:
     app_config = yaml.safe_load(f.read())
     kafka_server = app_config["events"]["hostname"]
     kafka_port = app_config["events"]["port"]
@@ -16,10 +26,14 @@ with open('./app_conf.yaml', 'r') as f:
     max_retry = app_config["max_retry"]
     sleep = app_config["sleep"]
 
-with open('./log_conf.yaml', 'r') as f:
+with open(log_conf_file, 'r') as f:
     log_config = yaml.safe_load(f.read())
     logging.config.dictConfig(log_config)
-    logger = logging.getLogger('basicLogger')
+
+logger = logging.getLogger('basicLogger')
+
+logger.info(f"App Conf File: {app_conf_file}")
+logger.info(f"Log Conf File: {log_conf_file}")
 
 
 def create_order(body):
