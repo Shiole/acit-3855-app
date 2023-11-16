@@ -17,13 +17,13 @@ else:
     log_conf_file = "log_conf.yaml"
 
 
-with open('app_conf.yaml', 'r') as f:
+with open(app_conf_file, 'r') as f:
     app_config = yaml.safe_load(f.read())
     kafka_server = app_config["events"]["hostname"]
     kafka_port = app_config["events"]["port"]
     kafka_topic = app_config["events"]["topic"]
 
-with open("log_conf.yaml", "r") as f:
+with open(log_conf_file, "r") as f:
     log_config = yaml.safe_load(f.read())
     logging.config.dictConfig(log_config)
 
