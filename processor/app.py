@@ -47,8 +47,21 @@ def get_stats():
 
         return data, 200
     else:
-        logger.error("Error: Stats file does not exist")
-        return "Statistics do not exist", 404
+        dummy_data = {
+            "num_orders": 0,
+            "max_order_quantity": 0,
+            "max_order_total": 0,
+            "num_deliveries": 0,
+            "max_delivery_distance": 0,
+            "last_updated": "2023-11-02 10:40:05.309015"
+        }
+        with open(data_file, "r+") as f:
+            json.dump(dummy_data)
+            data = json.load(f)
+
+        logger.info("Processing log created")
+
+        return data, 200
 
 
 def populate_stats():
