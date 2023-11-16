@@ -47,22 +47,8 @@ def get_stats():
 
         return data, 200
     else:
-        dummy_data = {
-            "num_orders": 0,
-            "max_order_quantity": 0,
-            "max_order_total": 0,
-            "num_deliveries": 0,
-            "max_delivery_distance": 0,
-            "last_updated": "2023-11-02 10:40:05.309015"
-        }
-        with open(data_file, "w") as f:
-            json.dump(dummy_data)
-            logger.info("Processing log created")
-
-        with open(data_file, 'r') as f:
-            data = json.load(f)
-
-        return data, 200
+        logger.error("Error: Stats file does not exist")
+        return "Statistics do not exist", 404
 
 
 def populate_stats():
@@ -79,8 +65,14 @@ def populate_stats():
             "max_order_total": 0,
             "num_deliveries": 0,
             "max_delivery_distance": 0,
-            "last_updated": "2023-11-02 10:40:05.309015"
+            "last_updated": "2023-11-16 10:53:05.309015"
         }
+        with open(data_file, "w") as f:
+            json.dump(stats)
+            logger.info("Data file created")
+
+        with open(data_file, 'r') as f:
+            stats = json.load(f)
 
     last_updated = stats["last_updated"]
     cur_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
