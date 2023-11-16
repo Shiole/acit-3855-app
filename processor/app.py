@@ -55,11 +55,12 @@ def get_stats():
             "max_delivery_distance": 0,
             "last_updated": "2023-11-02 10:40:05.309015"
         }
-        with open(data_file, "r+") as f:
+        with open(data_file, "w") as f:
             json.dump(dummy_data)
-            data = json.load(f)
+            logger.info("Processing log created")
 
-        logger.info("Processing log created")
+        with open(data_file, 'r') as f:
+            data = json.load(f)
 
         return data, 200
 
