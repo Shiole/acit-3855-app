@@ -67,12 +67,6 @@ def populate_stats():
             "max_delivery_distance": 0,
             "last_updated": "2023-11-16 10:53:05.309015"
         }
-        with open(data_file, "w") as f:
-            json.dump(stats, f)
-            logger.info("Data file created")
-
-        with open(data_file, 'r') as f:
-            stats = json.load(f)
 
     last_updated = stats["last_updated"]
     cur_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
@@ -145,4 +139,4 @@ app.app.config['CORS_HEADERS'] = 'Content-Type'
 
 if __name__ == "__main__":
     init_scheduler()
-    app.run(port=8100, debug=True)
+    app.run(port=8100)
