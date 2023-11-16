@@ -49,7 +49,7 @@ logger.info(f"Log Conf File: {log_conf_file}")
 
 def get_orders(start_timestamp, end_timestamp):
     """ Gets new orders after the timestamp"""
-    session = DB_SESSION
+    session = DB_SESSION()
     start_timestamp_datetime = datetime.datetime.strptime(
         start_timestamp, "%Y-%m-%d %H:%M:%S.%f")
 
@@ -75,7 +75,7 @@ def get_orders(start_timestamp, end_timestamp):
 
 def get_deliveries(start_timestamp, end_timestamp):
     """ Gets new deliveries after the timestamp"""
-    session = DB_SESSION
+    session = DB_SESSION()
 
     start_timestamp_datetime = datetime.datetime.strptime(
         start_timestamp, "%Y-%m-%d %H:%M:%S.%f")
