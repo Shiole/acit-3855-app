@@ -68,7 +68,7 @@ def populate_stats():
             "last_updated": "2023-11-16 10:53:05.309015"
         }
         with open(data_file, "w") as f:
-            json.dump(stats)
+            json.dump(stats, f)
             logger.info("Data file created")
 
         with open(data_file, 'r') as f:
