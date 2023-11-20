@@ -76,6 +76,11 @@ def schedule_delivery(body):
     return NoContent, 201
 
 
+def get_health():
+    """ Get health status of receiver """
+    pass
+
+
 app = FlaskApp(__name__, specification_dir='')
 app.add_api("openapi.yaml", strict_validation=True,
             validate_responses=True)

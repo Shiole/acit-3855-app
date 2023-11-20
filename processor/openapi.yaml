@@ -32,6 +32,30 @@ paths:
                 properties:
                   message:
                     type: string
+  /health:
+    get:
+      summary: get service health
+      operationId: app.get_health
+      description: Get service health every 5 seconds
+      responses:
+        "200":
+          description: Service is running
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "500":
+          description: Service is down
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
 components:
   schemas:
     BurgerStats:

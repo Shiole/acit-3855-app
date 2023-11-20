@@ -23,7 +23,10 @@ else:
 with open(app_conf_file, "r") as f:
     app_config = yaml.safe_load(f.read())
     data_file = app_config["datastore"]["filename"]
-    ENDPOINT = app_config["eventstore"]["url"]
+    receiver_endpoint = app_config["eventstore"]["receiver_url"]
+    storage_endpoint = app_config["eventstore"]["storage_url"]
+    processing_endpoint = app_config["eventstore"]["processing_url"]
+    audit_endpoint = app_config["eventstore"]["audit_url"]
 
 with open(log_conf_file, "r") as f:
     log_config = yaml.safe_load(f.read())
@@ -35,7 +38,7 @@ logger.info(f"App Conf File: {app_conf_file}")
 logger.info(f"Log Conf File: {log_conf_file}")
 
 
-def get_stats():
+def get_health():
     logger.info("Starting stats retrieval...")
 
     if os.path.isfile(data_file):
@@ -51,7 +54,7 @@ def get_stats():
         return "Statistics do not exist", 404
 
 
-def populate_stats():
+def populate_health():
     """ Periodically update stats """
     logger.info("Start Periodic Processing...")
 
@@ -60,59 +63,21 @@ def populate_stats():
             stats = json.load(f)
     else:
         stats = {
-            "num_orders": 0,
-            "max_order_quantity": 0,
-            "max_order_total": 0,
-            "num_deliveries": 0,
-            "max_delivery_distance": 0,
+            "Receiver": "Down",
+            "Storage": "Down",
+            "Processing": "Down",
+            "Audit": "Down",
             "last_updated": "2023-11-16 10:53:05.309015"
         }
 
     last_updated = stats["last_updated"]
     cur_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
 
-    # Get Order logs
-    orders_response = requests.get(
-        f"{ENDPOINT}/getorders?start_timestamp={last_updated}&end_timestamp={cur_datetime}")
-    orders_results = orders_response.json()
-
-    # Process logs
-    if orders_response.status_code == 200:
-        logger.info(
-            f"Received {len(orders_results)} Order events at {cur_datetime}")
-
-        stats["num_orders"] += len(orders_results)
-
-        if len(orders_results):
-            stats["max_order_quantity"] = max(
-                map(lambda o: o["order_quantity"], orders_results))
-            stats["max_order_total"] = max(
-                map(lambda o: o["order_total"], orders_results))
-    else:
-        logger.error(
-            f"Getting Orders returned status code {orders_response.status_code}")
-        return
-
-    # Get Delivery logs
-    deliveries_response = requests.get(
-        f"{ENDPOINT}/getdeliveries?start_timestamp={last_updated}&end_timestamp={cur_datetime}")
-    deliveries_results = deliveries_response.json()
-
-    # Process logs
-    if deliveries_response.status_code == 200:
-        logger.info(
-            f"Received {len(orders_results)} Delivery events at {cur_datetime}")
-
-        stats["num_deliveries"] += len(deliveries_results)
-
-        if len(deliveries_results):
-            stats["max_delivery_distance"] = max(
-                map(lambda d: d["delivery_distance"], deliveries_results))
-
-    else:
-        logger.error(
-            f"Getting Deliveries returned status code {deliveries_response.status_code}")
-        return
+    # Get service health
+    receiver_health = requests.get(f"{receiver_endpoint}/health")
+    storage_health = requests.get(f"{storage_endpoint}/health")
+    processing_health = requests.get(f"{processing_endpoint}/health")
+    audit_health = requests.get(f"{audit_endpoint}/health")
 
     stats["last_updated"] = cur_datetime
 
@@ -123,19 +88,9 @@ def populate_stats():
     logger.info("Periodic processing complete")
 
 
-def get_health():
-    """ Get health status of receiver """
-    try:
-        populate_stats()
-    except:
-        return NoContent, 500
-
-    return NoContent, 200
-
-
 def init_scheduler():
     sched = BackgroundScheduler(daemon=True)
-    sched.add_job(populate_stats,
+    sched.add_job(populate_health,
                   "interval",
                   seconds=app_config["scheduler"]["period_sec"]
                   )
@@ -149,4 +104,4 @@ app.app.config['CORS_HEADERS'] = 'Content-Type'
 
 if __name__ == "__main__":
     init_scheduler()
-    app.run(port=8100, use_reloader=False)
+    app.run(port=8120, use_reloader=False)

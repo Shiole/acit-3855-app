@@ -32,7 +32,6 @@ paths:
             schema:
               $ref: "#/components/schemas/OrderItem"
         description: Order item to add
-
   /deliveries:
     post:
       tags:
@@ -51,6 +50,30 @@ paths:
             schema:
               $ref: "#/components/schemas/DeliveryItem"
         description: Delivery item to add
+  /health:
+    get:
+      summary: get service health
+      operationId: app.get_health
+      description: Get service health every 5 seconds
+      responses:
+        "200":
+          description: Service is running
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "500":
+          description: Service is down
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
 components:
   schemas:
     OrderItem:

@@ -1,4 +1,4 @@
-from connexion import FlaskApp
+from connexion import FlaskApp, NoContent
 from pykafka import KafkaClient
 import logging
 import logging.config
@@ -95,6 +95,17 @@ def get_delivery_event(index):
         logger.error("No more messages found")
         logger.error(f"Could not find Delivery at index {index}")
     return {"message": "Not Found"}, 404
+
+
+def get_health():
+    """ Get health status of receiver """
+    try:
+        get_order_event(0)
+        get_delivery_event(0)
+    except:
+        return NoContent, 500
+
+    return NoContent, 200
 
 
 app = FlaskApp(__name__, specification_dir='')

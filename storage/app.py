@@ -1,6 +1,6 @@
-from connexion import FlaskApp
+from connexion import FlaskApp, NoContent
 from sqlalchemy import create_engine, and_
-from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm import sessionmaker
 from base import Base
 from orders import Orders
 from deliveries import Deliveries
@@ -182,6 +182,17 @@ def process_messages():
 
         # Commit the new message as being read
         consumer.commit_offsets()
+
+
+def get_health():
+    """ Get service health status """
+    try:
+        session = DB_SESSION()
+        session.execute('SELECT 1')
+    except:
+        return NoContent, 500
+
+    return NoContent, 200
 
 
 app = FlaskApp(__name__, specification_dir='')
