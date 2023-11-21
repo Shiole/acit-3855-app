@@ -99,12 +99,6 @@ def get_delivery_event(index):
 
 def get_health():
     """ Get health status of receiver """
-    try:
-        get_order_event(0)
-        get_delivery_event(0)
-    except:
-        return NoContent, 500
-
     return NoContent, 200
 
 

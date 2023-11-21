@@ -78,7 +78,7 @@ def schedule_delivery(body):
 
 def get_health():
     """ Get health status of receiver """
-    pass
+    return NoContent, 200
 
 
 app = FlaskApp(__name__, specification_dir='')

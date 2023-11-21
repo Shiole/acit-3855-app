@@ -186,12 +186,6 @@ def process_messages():
 
 def get_health():
     """ Get service health status """
-    try:
-        session = DB_SESSION()
-        session.execute('SELECT 1')
-    except:
-        return NoContent, 500
-
     return NoContent, 200
 
 

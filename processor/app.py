@@ -125,11 +125,6 @@ def populate_stats():
 
 def get_health():
     """ Get health status of receiver """
-    try:
-        populate_stats()
-    except:
-        return NoContent, 500
-
     return NoContent, 200
 
 

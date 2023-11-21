@@ -23,10 +23,10 @@ else:
 with open(app_conf_file, "r") as f:
     app_config = yaml.safe_load(f.read())
     data_file = app_config["datastore"]["filename"]
-    receiver_endpoint = app_config["eventstore"]["receiver_url"]
-    storage_endpoint = app_config["eventstore"]["storage_url"]
-    processing_endpoint = app_config["eventstore"]["processing_url"]
-    audit_endpoint = app_config["eventstore"]["audit_url"]
+    receiver = app_config["eventstore"]["receiver_url"]
+    storage = app_config["eventstore"]["storage_url"]
+    processing = app_config["eventstore"]["processing_url"]
+    audit = app_config["eventstore"]["audit_url"]
 
 with open(log_conf_file, "r") as f:
     log_config = yaml.safe_load(f.read())
@@ -38,54 +38,37 @@ logger.info(f"App Conf File: {app_conf_file}")
 logger.info(f"Log Conf File: {log_conf_file}")
 
 
-def get_health():
-    logger.info("Starting stats retrieval...")
+def get_health(service):
+    logger.info(f"Checking {service} health...")
+    status = "Down"
+    try:
+        res = requests.get(f"{app_config['eventstore'][service]}", timeout=int(
+            app_config["timeout"]["timeout_sec"]))
+        if res.status_code == 200:
+            status = "Running"
+            logger.info(f"{service} service is RUNNING")
+    except:
+        logger.error(f"{service} service is DOWN")
+        pass
 
-    if os.path.isfile(data_file):
-        with open(data_file, "r") as f:
-            data = json.load(f)
-
-        logger.debug(f"Current recorded stats: {data}")
-        logger.info("Stats retrieval complete")
-
-        return data, 200
-    else:
-        logger.error("Error: Stats file does not exist")
-        return "Statistics do not exist", 404
+    return status
 
 
 def populate_health():
     """ Periodically update stats """
     logger.info("Start Periodic Processing...")
 
-    if os.path.isfile(data_file):
-        with open(data_file, "r") as f:
-            stats = json.load(f)
-    else:
-        stats = {
-            "Receiver": "Down",
-            "Storage": "Down",
-            "Processing": "Down",
-            "Audit": "Down",
-            "last_updated": "2023-11-16 10:53:05.309015"
-        }
-
-    last_updated = stats["last_updated"]
-    cur_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
-
     # Get service health
-    receiver_health = requests.get(f"{receiver_endpoint}/health")
-    storage_health = requests.get(f"{storage_endpoint}/health")
-    processing_health = requests.get(f"{processing_endpoint}/health")
-    audit_health = requests.get(f"{audit_endpoint}/health")
+    services = ["receiver", "storage", "processing", "audit"]
+    health = {}
 
-    stats["last_updated"] = cur_datetime
+    for s in services:
+        health[s] = get_health(s)
+
+    health["last_updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
 
     with open(data_file, "w") as f:
-        json.dump(stats, f)
-
-    logger.debug(f"Updated processed data: {stats}")
-    logger.info("Periodic processing complete")
+        json.dump(health, f)
 
 
 def init_scheduler():
