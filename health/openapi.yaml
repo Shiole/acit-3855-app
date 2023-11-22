@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  description: This API provides audit info
+  version: "1.0.0"
+  title: Audit API
+  contact:
+    email: klow23@bcit.ca
+
+paths:
+  /health:
+    get:
+      summary: get service health
+      operationId: app.get_health
+      description: Get service health every 20 seconds
+      responses:
+        "200":
+          description: Service is running
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: "#/components/schemas/Health"
+components:
+  schemas:
+    Health:
+      required:
+        - receiver
+        - storage
+        - processing
+        - audit
+      type: object
+      properties:
+        receiver:
+          type: receiver
+          example: "Running"
+        storage:
+          type: string
+          example: "Running"
+        processing:
+          type: string
+          example: "Running"
+        audit:
+          type: string
+          example: "Running"

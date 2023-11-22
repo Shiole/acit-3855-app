@@ -38,7 +38,23 @@ logger.info(f"App Conf File: {app_conf_file}")
 logger.info(f"Log Conf File: {log_conf_file}")
 
 
-def get_health(service):
+def get_health():
+    logger.info("Retreiving health stats...")
+
+    if os.path.isfile(data_file):
+        with open(data_file, "r") as f:
+            data = json.load(f)
+
+        logger.debug(f"Current recorded health: {data}")
+        logger.info("Health retrieval complete")
+
+        return data, 200
+    else:
+        logger.error("Error: Health file does not exist")
+        return "Health stats do not exist", 404
+
+
+def get_service_health(service):
     logger.info(f"Checking {service} health...")
     status = "Down"
     try:
@@ -55,17 +71,31 @@ def get_health(service):
 
 
 def populate_health():
-    """ Periodically update stats """
-    logger.info("Start Periodic Processing...")
+    """ Periodically update health """
+    logger.info("Start Periodic Health Check...")
+
+    if os.path.isfile(data_file):
+        with open(data_file, "r") as f:
+            health = json.load(f)
+    else:
+        health = {
+            "receiver": "Down",
+            "storage": "Down",
+            "processing": "Down",
+            "audit": "Donw",
+            "last_updated": "2023-11-21 10:53:05.309015"
+        }
+
+    cur_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
 
     # Get service health
     services = ["receiver", "storage", "processing", "audit"]
     health = {}
 
     for s in services:
-        health[s] = get_health(s)
+        health[s] = get_service_health(s)
 
-    health["last_updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
+    health["last_updated"] = cur_datetime
 
     with open(data_file, "w") as f:
         json.dump(health, f)
