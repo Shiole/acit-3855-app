@@ -3,7 +3,7 @@ import '../App.css';
 
 export default function Health() {
     const [isLoaded, setIsLoaded] = useState(false);
-    const [stats, setStats] = useState({});
+    const [health, setHealth] = useState({});
     const [error, setError] = useState(null)
 
 	const getHealth = () => {
@@ -12,7 +12,7 @@ export default function Health() {
             .then(res => res.json())
             .then((result)=>{
 				console.log("Received Health")
-                setStats(result);
+                setHealth(result);
                 setIsLoaded(true);
             },(error) =>{
                 setError(error)
@@ -35,20 +35,20 @@ export default function Health() {
                 <table className={"HealthTable"}>
 					<tbody>
 						<tr>
-                        <td colspan="2">Receiver: {stats['receiver']}</td>
+                        <td colspan="2">Receiver: {health['receiver']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Storage: {stats['storage']}</td>
+							<td colspan="2">Storage: {health['storage']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Processing: {stats['processing']}</td>
+							<td colspan="2">Processing: {health['processing']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Audit: {stats['audit']}</td>
+							<td colspan="2">Audit: {health['audit']}</td>
 						</tr>
 					</tbody>
                 </table>
-                <h3>Last Updated: {stats['last_updated']}</h3>
+                <h3>Last Updated: {health['last_updated']}</h3>
             </div>
         )
     }

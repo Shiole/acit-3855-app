@@ -82,11 +82,9 @@ def populate_health():
             "receiver": "Down",
             "storage": "Down",
             "processing": "Down",
-            "audit": "Donw",
+            "audit": "Down",
             "last_updated": "2023-11-21 10:53:05.309015"
         }
-
-    cur_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
 
     # Get service health
     services = ["receiver", "storage", "processing", "audit"]
@@ -95,7 +93,7 @@ def populate_health():
     for s in services:
         health[s] = get_service_health(s)
 
-    health["last_updated"] = cur_datetime
+    health["last_updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
 
     with open(data_file, "w") as f:
         json.dump(health, f)
