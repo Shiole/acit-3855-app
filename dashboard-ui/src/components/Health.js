@@ -36,19 +36,19 @@ export default function Health() {
 					<tbody>
 						<tr>
                         <td>Receiver: </td>
-                        <td style='color:${health["receiver"]=="Running" ? "green" : "red"}'>{health['receiver']}</td>
+                        <td>{health['receiver']}</td>
 						</tr>
 						<tr>
 							<td>Storage: </td>
-							<td style='color:${health["receiver"]=="Running" ? "green" : "red"}'>{health['storage']}</td>
+							<td>{health['storage']}</td>
 						</tr>
 						<tr>
 							<td>Processing: </td>
-							<td style='color:${health["receiver"]=="Running" ? "green" : "red"}'>{health['processing']}</td>
+							<td>{health['processing']}</td>
 						</tr>
 						<tr>
 							<td>Audit: </td>
-							<td style='color:${health["receiver"]=="Running" ? "green" : "red"}'>{health['audit']}</td>
+							<td>{health['audit']}</td>
 						</tr>
 					</tbody>
                 </table>
