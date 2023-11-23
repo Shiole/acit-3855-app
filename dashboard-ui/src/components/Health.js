@@ -36,23 +36,48 @@ export default function Health() {
 					<tbody>
 						<tr>
                         <td>Receiver:   </td>
-                        <td>{health['receiver']}</td>
+                            <td style={{
+                                    fontWeight: "bold",
+                                    color: health['storage'] === "Running" ? "green" : "red",
+                                }}
+                            >
+                                {health['receiver']}
+                            </td>
 						</tr>
 						<tr>
-							<td>Storage:   </td>
-							<td>{health['storage']}</td>
+							<td>Storage:</td>
+							<td style={{
+                                    fontWeight: "bold",
+                                    color: health['storage'] === "Running" ? "green" : "red",
+                                }}
+                            >
+                                {health['storage']}
+                            </td>
 						</tr>
 						<tr>
 							<td>Processing:   </td>
-							<td>{health['processing']}</td>
+							<td style={{
+                                    fontWeight: "bold",
+                                    color: health['storage'] === "Running" ? "green" : "red",
+                                }}
+                            >
+                                {health['processing']}
+                            </td>
 						</tr>
 						<tr>
 							<td>Audit:   </td>
-							<td>{health['audit']}</td>
+							<td style={{
+                                    fontWeight: "bold",
+                                    color: health['storage'] === "Running" ? "green" : "red",
+                                }}
+                            >
+                                {health['audit']}
+                            </td>
 						</tr>
 					</tbody>
                 </table>
-                <h3>Last Updated: {Math.floor((new Date().getTime() - new Date(health['last_updated']))/1000.0)} seconds ago</h3>
+                <h3>Last Updated:   </h3>
+                <h3>{Math.floor((new Date() - new Date(health['last_updated']))/1000)} seconds ago</h3>
             </div>
         )
     }
