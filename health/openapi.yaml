@@ -19,9 +19,8 @@ paths:
             application/json:
               schema:
                 type: object
-                properties:
-                  message:
-                    type: "#/components/schemas/Health"
+                items:
+                  $ref: "#/components/schemas/Health"
 components:
   schemas:
     Health:
