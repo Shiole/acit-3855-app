@@ -29,6 +29,9 @@ export default function Health() {
     } else if (isLoaded === false){
         return(<div>Loading...</div>)
     } else if (isLoaded === true){
+        const now = new Date().getSeconds();
+        const last = new Date(health["last_updated"]).getSeconds();
+
         return(
             <div>
                 <h1>Service Health</h1>
@@ -76,7 +79,7 @@ export default function Health() {
 						</tr>
 					</tbody>
                 </table>
-                <h3>Last Updated: {Math.floor(((new Date()).getSeconds() - (new Date(health["last_updated"]))).getSeconds())} seconds ago seconds ago</h3>
+                <h3>Last Updated: {Math.abs(now - last)} seconds ago seconds ago</h3>
             </div>
         )
     }
