@@ -83,7 +83,7 @@ def populate_health():
             "storage": "Down",
             "processing": "Down",
             "audit": "Down",
-            "last_updated": "2023-11-21 10:53:05.309015"
+            "last_updated": "2023-11-21T10:53:05Z"
         }
 
     # Get service health
@@ -93,7 +93,7 @@ def populate_health():
     for s in services:
         health[s] = get_service_health(s)
 
-    health["last_updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
+    health["last_updated"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
 
     with open(data_file, "w") as f:
         json.dump(health, f)
