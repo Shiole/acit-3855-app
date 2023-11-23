@@ -35,16 +35,20 @@ export default function Health() {
                 <table className={"HealthTable"}>
 					<tbody>
 						<tr>
-                        <td colspan="2">Receiver: {health['receiver']}</td>
+                        <td>Receiver: </td>
+                        <td>{health['receiver']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Storage: {health['storage']}</td>
+							<td>Storage: </td>
+							<td>{health['storage']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Processing: {health['processing']}</td>
+							<td>Processing: </td>
+							<td>{health['processing']}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Audit: {health['audit']}</td>
+							<td>Audit: </td>
+							<td>{health['audit']}</td>
 						</tr>
 					</tbody>
                 </table>
