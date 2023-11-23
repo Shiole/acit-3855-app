@@ -23,10 +23,10 @@ else:
 with open(app_conf_file, "r") as f:
     app_config = yaml.safe_load(f.read())
     data_file = app_config["datastore"]["filename"]
-    receiver = app_config["eventstore"]["receiver_url"]
-    storage = app_config["eventstore"]["storage_url"]
-    processing = app_config["eventstore"]["processing_url"]
-    audit = app_config["eventstore"]["audit_url"]
+    receiver = app_config["eventstore"]["receiver"]
+    storage = app_config["eventstore"]["storage"]
+    processing = app_config["eventstore"]["processing"]
+    audit = app_config["eventstore"]["audit"]
 
 with open(log_conf_file, "r") as f:
     log_config = yaml.safe_load(f.read())
