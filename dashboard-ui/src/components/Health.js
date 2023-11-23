@@ -22,7 +22,7 @@ export default function Health() {
     useEffect(() => {
 		const interval = setInterval(() => getHealth(), 2000); // Update every 2 seconds
 		return() => clearInterval(interval);
-    }, [getStats]);
+    }, [getHealth]);
 
     if (error){
         return (<div className={"error"}>Error found when fetching from API</div>)
