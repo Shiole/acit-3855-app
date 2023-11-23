@@ -52,7 +52,7 @@ export default function Health() {
 						</tr>
 					</tbody>
                 </table>
-                <h3>Last Updated: {Math.abs(new Date() - health['last_updated'].replace(/-/g,'/'))}</h3>
+                <h3>Last Updated: {Math.abs(new Date().getTime() - Date.parse(health['last_updated']))}</h3>
             </div>
         )
     }
