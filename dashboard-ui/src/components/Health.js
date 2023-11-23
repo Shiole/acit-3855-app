@@ -38,42 +38,26 @@ export default function Health() {
                 <table className={"HealthTable"}>
 					<tbody>
 						<tr>
-                        <td>Receiver:   </td>
-                            <td style={{
-                                    fontWeight: "bold",
-                                    color: health['storage'] === "Running" ? "green" : "red",
-                                }}
-                            >
+                            <td style={{'padding-right': '150px'}}>Receiver:</td>
+                            <td style={{color: health['storage'] === "Running" ? "green" : "red",}}>
                                 {health['receiver']}
                             </td>
 						</tr>
 						<tr>
-							<td>Storage:</td>
-							<td style={{
-                                    fontWeight: "bold",
-                                    color: health['storage'] === "Running" ? "green" : "red",
-                                }}
-                            >
+							<td style={{'padding-right': '150px'}}>Storage:</td>
+							<td style={{fcolor: health['storage'] === "Running" ? "green" : "red",}}>
                                 {health['storage']}
                             </td>
 						</tr>
 						<tr>
-							<td>Processing:   </td>
-							<td style={{
-                                    fontWeight: "bold",
-                                    color: health['storage'] === "Running" ? "green" : "red",
-                                }}
-                            >
+							<td style={{'padding-right': '150px'}}>Processing:</td>
+							<td style={{color: health['storage'] === "Running" ? "green" : "red",}}>
                                 {health['processing']}
                             </td>
 						</tr>
 						<tr>
-							<td>Audit:   </td>
-							<td style={{
-                                    fontWeight: "bold",
-                                    color: health['storage'] === "Running" ? "green" : "red",
-                                }}
-                            >
+							<td style={{'padding-right': '150px'}}>Audit:</td>
+							<td style={{color: health['storage'] === "Running" ? "green" : "red",}}>
                                 {health['audit']}
                             </td>
 						</tr>
