@@ -98,6 +98,9 @@ def populate_health():
     with open(data_file, "w") as f:
         json.dump(health, f)
 
+    logger.debug(f"Updated health data: {health}")
+    logger.info("Health status check complete")
+
 
 def init_scheduler():
     sched = BackgroundScheduler(daemon=True)

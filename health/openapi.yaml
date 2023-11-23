@@ -32,7 +32,7 @@ components:
       type: object
       properties:
         receiver:
-          type: receiver
+          type: string
           example: "Running"
         storage:
           type: string
