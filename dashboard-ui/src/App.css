@@ -35,9 +35,9 @@
 .HealthTable{
     margin-left: auto;
     margin-right: auto;
+    text-align: left;
 }
 
 .Status{
   font-weight: bold;
-  text-align: left;
 }

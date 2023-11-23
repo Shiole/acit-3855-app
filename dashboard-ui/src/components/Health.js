@@ -52,7 +52,7 @@ export default function Health() {
 						</tr>
 					</tbody>
                 </table>
-                <h3>Last Updated: {health['last_updated']}</h3>
+                <h3>Last Updated: {health['last_updated'].slice(10)}</h3>
             </div>
         )
     }
