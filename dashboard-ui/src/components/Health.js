@@ -38,25 +38,25 @@ export default function Health() {
                 <table className={"HealthTable"}>
 					<tbody>
 						<tr>
-                            <td style={{'padding-right': '150px'}}>Receiver:</td>
+                            <td style={{'padding-right': '50px'}}>Receiver:</td>
                             <td style={{color: health['storage'] === "Running" ? "green" : "red",}}>
                                 {health['receiver']}
                             </td>
 						</tr>
 						<tr>
-							<td style={{'padding-right': '150px'}}>Storage:</td>
-							<td style={{fcolor: health['storage'] === "Running" ? "green" : "red",}}>
+							<td style={{'padding-right': '50px'}}>Storage:</td>
+							<td style={{color: health['storage'] === "Running" ? "green" : "red",}}>
                                 {health['storage']}
                             </td>
 						</tr>
 						<tr>
-							<td style={{'padding-right': '150px'}}>Processing:</td>
+							<td style={{'padding-right': '50px'}}>Processing:</td>
 							<td style={{color: health['storage'] === "Running" ? "green" : "red",}}>
                                 {health['processing']}
                             </td>
 						</tr>
 						<tr>
-							<td style={{'padding-right': '150px'}}>Audit:</td>
+							<td style={{'padding-right': '50px'}}>Audit:</td>
 							<td style={{color: health['storage'] === "Running" ? "green" : "red",}}>
                                 {health['audit']}
                             </td>
