@@ -114,7 +114,7 @@ services:
       - /home/azureuser/config/health:/config
       - /home/azureuser/logs:/logs
       - health-db:/data
-  dashboard:
+  dashboard-ui:
     image: dashboard-ui
     ports:
       - "3000"
