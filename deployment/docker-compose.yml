@@ -121,7 +121,7 @@ services:
     networks:
       - "api.network"
     depends_on:
-      - "processor"
+      - "processing"
       - "audit_log"
   nginx:
     image: nginx:latest
