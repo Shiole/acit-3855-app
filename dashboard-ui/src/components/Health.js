@@ -76,7 +76,7 @@ export default function Health() {
 						</tr>
 					</tbody>
                 </table>
-                <h3>Last Updated: {Math.floor((new Date() - (new Date(health["last_updated"])).getTime()) / 1000)} seconds ago seconds ago</h3>
+                <h3>Last Updated: {Math.floor((new Date().getSeconds() - new Date(health["last_updated"])).getSeconds())} seconds ago seconds ago</h3>
             </div>
         )
     }
