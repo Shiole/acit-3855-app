@@ -40,13 +40,7 @@ paths:
       responses:
         "200":
           description: Service is running
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
+
 components:
   schemas:
     BurgerStats:
