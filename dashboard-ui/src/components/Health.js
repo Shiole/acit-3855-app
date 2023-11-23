@@ -8,7 +8,7 @@ export default function Health() {
 
 	const getHealth = () => {
 	
-        fetch(`http://acit3855-kafka.canadacentral.cloudapp.azure.com:8120/health`)
+        fetch(`http://acit3855-kafka.canadacentral.cloudapp.azure.com/health`)
             .then(res => res.json())
             .then((result)=>{
 				console.log("Received Health")
