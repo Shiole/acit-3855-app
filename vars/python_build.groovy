@@ -22,6 +22,7 @@ def call(imageName) {
                         sh "docker build -t shiole/${imageName}:latest ${imageName}/."
                         sh "docker push shiole/${imageName}:latest"
                     }
+                }
             }
             stage("Deploy") {
                 when {
