@@ -29,7 +29,7 @@ def call(imageName) {
                     expression { params.DEPLOY } 
                 }
                 steps {
-                    sshagent(withCredentials([string(credentialsId: 'kitty-kafka-ssh', variable: 'TOKEN')])) {
+                    sshagent(credentials: ['kitty-kafka-ssh']) {
                         sh "ssh -o StrictHostKeyChecking=no azureuser@20.63.111.22 'cd ~/acit-3855-kafka/acit-3855-app/deployment && docker pull shiole/${imageName}:latest && docker-compose up -d'"
                     }
                 }
