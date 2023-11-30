@@ -125,7 +125,7 @@ def process_messages():
     # read all the old messages from the history in the message queue).
     consumer = topic.get_balanced_consumer(consumer_group='event_group',
                                            zookeeper_connect=(
-                                               '10.0.0.5', 2181),
+                                               '20.63.111.22', 2181),
                                            reset_offset_on_start=False,
                                            auto_commit_enable=True,
                                            auto_commit_interval_ms=100,
