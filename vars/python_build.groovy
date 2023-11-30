@@ -1,4 +1,4 @@
-def call(dockerRepoName, imageName, portNum) {
+def call(imageName) {
     pipeline {
         agent any
         parameters {
@@ -7,12 +7,12 @@ def call(dockerRepoName, imageName, portNum) {
         stages {
             stage("Lint") {
                 steps {
-                    sh "pylint --fail-under=5.0 ./${dockerRepoName}/*.py"
+                    sh "pylint --fail-under=5.0 ./${imageName}/*.py"
                 }
             }
             stage("Security") {
                 steps {
-                    sh "safety check -r ${dockerRepoName}/requirements.txt --full-report -o text --continue-on-error"
+                    sh "safety check -r ${imageName}/requirements.txt --full-report -o text --continue-on-error"
                 }
             }
             stage("Package") {
@@ -22,8 +22,8 @@ def call(dockerRepoName, imageName, portNum) {
                     steps {
                     withCredentials([string(credentialsId: 'DockerHub', variable: 'TOKEN')]) {
                         sh "docker login -u 'shiole' -p '$TOKEN' docker.io"
-                        sh "docker build -t ${dockerRepoName}:latest --tag shiole/${dockerRepoName}:${imageName} ."
-                        sh "docker push shiole/${dockerRepoName}:${imageName}"
+                        sh "docker build -t shiole/${imageName}:latest ${imageName}/."
+                        sh "docker push shiole/${imageName}:latest"
                     }
                 }
             }
@@ -33,7 +33,7 @@ def call(dockerRepoName, imageName, portNum) {
                 }
                 steps {
                     sshagent(withCredentials([string(credentialsId: 'Kifka', variable: 'TOKEN')])) {
-                        sh "ssh -o StrictHostKeyChecking=no azureuser@20.63.111.22 'cd ~/acit-3855-kafka/acit-3855-app/deployment && docker pull shiole/${dockerRepoName}:latest && docker-compose up -d'"
+                        sh "ssh -o StrictHostKeyChecking=no azureuser@20.63.111.22 'cd ~/acit-3855-kafka/acit-3855-app/deployment && docker pull shiole/${imageName}:latest && docker-compose up -d'"
                     }
                 }
             }
