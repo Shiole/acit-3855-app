@@ -16,16 +16,12 @@ def call(imageName) {
                 }
             }
             stage("Package") {
-            when {
-                expression { env.GIT_BRANCH == 'origin/main' }
-                    }
-                    steps {
+                steps {
                     withCredentials([string(credentialsId: 'DockerHub', variable: 'TOKEN')]) {
                         sh "docker login -u 'shiole' -p '$TOKEN' docker.io"
                         sh "docker build -t shiole/${imageName}:latest ${imageName}/."
                         sh "docker push shiole/${imageName}:latest"
                     }
-                }
             }
             stage("Deploy") {
                 when {
