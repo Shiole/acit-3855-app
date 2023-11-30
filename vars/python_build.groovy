@@ -7,9 +7,7 @@ def call(dockerRepoName, imageName, portNum) {
         stages {
             stage("Lint") {
                 steps {
-                    withCredentials(usernamePassword(credentialsId: 'kitty-github', url: 'https://github.com/Shiole/acit-3855-app.git') {
-                        sh "pylint --fail-under=5.0 ./${dockerRepoName}/app.py"
-                    }
+                    sh "pylint --fail-under=5.0 ./${dockerRepoName}/app.py"
                 }
             }
             stage("Security") {
