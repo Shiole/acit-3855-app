@@ -1,2 +1,2 @@
 @Library('kitty_functions@main') _
-python_build("audit_log")
+python_build("audit")
