@@ -146,5 +146,6 @@ if "TARGET_ENV" not in os.environ or os.environ["TARGET_ENV"] != "test":
     app.config['CORS_HEADERS'] = 'Content-Type'
 
 if __name__ == "__main__":
+    print("testing")
     init_scheduler()
     app.run(port=8100, use_reloader=False)
