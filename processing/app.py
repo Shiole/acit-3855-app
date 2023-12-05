@@ -147,4 +147,5 @@ if "TARGET_ENV" not in os.environ or os.environ["TARGET_ENV"] != "test":
 
 if __name__ == "__main__":
     init_scheduler()
+    print("a3 test")
     app.run(port=8100, use_reloader=False)
