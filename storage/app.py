@@ -75,6 +75,7 @@ def get_orders(start_timestamp, end_timestamp):
 
 def get_deliveries(start_timestamp, end_timestamp):
     """ Gets new deliveries after the timestamp"""
+    logger.info("TESTING...")
     session = DB_SESSION()
 
     start_timestamp_datetime = datetime.datetime.strptime(
