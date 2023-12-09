@@ -54,7 +54,6 @@ def get_stats():
 def populate_stats():
     """ Periodically update stats """
     logger.info("Start Periodic Processing...")
-    logger.info("TESTING...")
 
     if os.path.isfile(data_file):
         with open(data_file, "r") as f:
